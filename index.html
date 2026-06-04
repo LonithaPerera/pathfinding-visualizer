@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pathfinding Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Pathfinding Visualizer</h1>
+    <p class="subtitle">Watch algorithms find the shortest path in real time</p>
+  </header>
+
+  <div class="toolbar">
+    <div class="tool-group">
+      <label>Algorithm</label>
+      <select id="algorithm">
+        <option value="astar">A* Search</option>
+        <option value="dijkstra">Dijkstra's</option>
+        <option value="bfs">Breadth-First Search</option>
+        <option value="dfs">Depth-First Search</option>
+        <option value="greedy">Greedy Best-First</option>
+        <option value="bidibfs">Bidirectional BFS</option>
+      </select>
+    </div>
+
+    <div class="tool-group">
+      <label>Draw Mode</label>
+      <div class="mode-btns">
+        <button class="mode-btn active" data-mode="wall">Wall</button>
+        <button class="mode-btn" data-mode="weight">Weight</button>
+        <button class="mode-btn" data-mode="start">Start</button>
+        <button class="mode-btn" data-mode="end">End</button>
+        <button class="mode-btn" data-mode="erase">Erase</button>
+      </div>
+    </div>
+
+    <div class="tool-group">
+      <label>Speed</label>
+      <select id="speed">
+        <option value="30">Slow</option>
+        <option value="15" selected>Medium</option>
+        <option value="5">Fast</option>
+        <option value="0">Instant</option>
+      </select>
+    </div>
+
+    <div class="tool-group">
+      <label>Options</label>
+      <label class="check-label">
+        <input type="checkbox" id="diagonalToggle"> Diagonal
+      </label>
+    </div>
+
+    <div class="action-btns">
+      <button id="mazeBtn">Generate Maze</button>
+      <button id="clearPathBtn">Clear Path</button>
+      <button id="clearBtn">Clear All</button>
+      <button id="startBtn" class="primary">Visualize</button>
+    </div>
+  </div>
+
+  <div class="legend">
+    <span class="legend-item"><span class="swatch start-swatch"></span>Start</span>
+    <span class="legend-item"><span class="swatch end-swatch"></span>End</span>
+    <span class="legend-item"><span class="swatch wall-swatch"></span>Wall</span>
+    <span class="legend-item"><span class="swatch weight-swatch"></span>Weight (cost×5)</span>
+    <span class="legend-item"><span class="swatch visited-swatch"></span>Visited</span>
+    <span class="legend-item"><span class="swatch visited2-swatch"></span>Visited (reverse)</span>
+    <span class="legend-item"><span class="swatch path-swatch"></span>Path</span>
+  </div>
+
+  <div class="grid-container">
+    <div id="grid"></div>
+  </div>
+
+  <div class="stats-bar">
+    <span>Visited: <strong id="visitedCount">0</strong></span>
+    <span>Path length: <strong id="pathLen">—</strong></span>
+    <span id="algoLabel"></span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
