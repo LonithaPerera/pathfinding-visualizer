@@ -1,42 +1,47 @@
 # Pathfinding Visualizer
 
-An interactive visualizer for classic pathfinding algorithms. Draw walls, set start and end points, generate mazes, and watch the algorithms find the shortest path in real time.
+An interactive visualizer for 6 classic pathfinding algorithms. Draw walls, place weighted nodes, generate mazes, and watch the algorithms find the shortest path in real time.
 
 ![Pathfinding Visualizer Screenshot](screenshot.png)
 
 ## Features
 
-- **4 algorithms** — A*, Dijkstra's, Breadth-First Search, Depth-First Search
-- **Draw mode** — click and drag to draw/erase walls, set start and end positions
-- **Maze generator** — instant recursive-division maze with one click
-- **Color-coded animation** — visited nodes (blue) and the final path (gold) animate step by step
-- **Speed control** — Slow, Medium, Fast, or Instant
+- **6 algorithms** — A*, Dijkstra's, BFS, DFS, Greedy Best-First, Bidirectional BFS
+- **Draw modes** — walls, weighted nodes (cost ×5), set start/end, erase
+- **Diagonal movement** toggle
+- **Recursive division maze generator**
+- **Clear path** — reset visited/path cells while keeping your walls
+- **Color-coded animation** — blue (visited), purple (reverse search), gold (path)
 - **Stats** — visited node count and final path length
 
 ## Algorithms
 
-| Algorithm | Weighted | Guarantees Shortest Path |
-|-----------|----------|--------------------------|
+| Algorithm | Weighted | Shortest Path |
+|-----------|----------|---------------|
 | A* Search | Yes | Yes |
 | Dijkstra's | Yes | Yes |
 | BFS | No | Yes (unweighted) |
 | DFS | No | No |
+| Greedy Best-First | No | No |
+| Bidirectional BFS | No | Yes |
 
 ## How to Use
 
 1. **Draw walls** — click and drag on the grid
-2. **Move start/end** — select Start or End mode then click a cell
-3. **Generate a maze** — click "Generate Maze"
-4. **Run** — pick an algorithm and click "Visualize"
-5. **Clear** — reset the grid and try again
+2. **Add weights** — switch to Weight mode, click cells (costs 5× to cross)
+3. **Move start/end** — select Start or End mode, click a cell
+4. **Generate a maze** — click "Generate Maze"
+5. **Run** — pick an algorithm and click "Visualize"
+6. **Clear path** — keep walls, reset the search to try another algorithm
 
 ## How to Run
 
-Open `index.html` directly in any modern browser — no installation needed.
+No installation needed.
 
 ```bash
-python -m http.server 3000
-# then open http://localhost:3000
+git clone https://github.com/LonithaPerera/pathfinding-visualizer
+cd pathfinding-visualizer
+# open index.html in your browser
 ```
 
 ## Tech Stack
